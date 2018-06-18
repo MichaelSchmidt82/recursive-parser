@@ -50,15 +50,15 @@ void error(string errorMsg);
 void skipline();
 
 int main(int argc, char **argv) {
-	ifstream	ifs; 
-	
+	ifstream	ifs;
+
 	if (argc!=2) {
 		cerr << "usage: " << argv[0] << " filename" << endl;
-		return 1;	
+		return 1;
 	}
 
 	ifs.open( argv[1] );
-	
+
 	if(!ifs) {
 		cerr << "Input file cannot be opened.\n";
         	return 0;
@@ -100,10 +100,10 @@ void exps() {
 	do {
 		try {
 			value = exp();
-			cout << "expression " << count << " : " << value << endl;
+			cout << "expression " << count << ":\t" << value << endl;
 		} catch(runtime_error e) {
 			skipline();
-			cout << "expression " << count << " :    wrong syntax -- " << e.what() << endl;
+			cout << "expression " << count << ":\twrong syntax -- " << e.what() << endl;
 		}
 		count ++;
 	} while (match(NEWLINE));
@@ -121,7 +121,7 @@ int exp() {
 			match(MINUS);
 			temp -= term();
 		}
-		
+
 	}
 
 	return temp;
@@ -146,7 +146,7 @@ int factor() {
 	if (nextToken == LPAREN) {
 		if (match(LPAREN))
 			count++;
-		
+
 		temp = exp();
 
 		if (match(RPAREN))
@@ -163,6 +163,6 @@ int factor() {
 	if (count)
 		throw runtime_error("Error: Token RPAREN expected." );
 
-		
+
 	return temp;
 }

@@ -614,7 +614,7 @@ case YY_STATE_EOF(INITIAL):
 case 12:
 YY_RULE_SETUP
 #line 37 "scanner.ll"
-{	std::cout << "illegal token"; }
+{	std::cout << "illegal token "; }
 	YY_BREAK
 case 13:
 YY_RULE_SETUP

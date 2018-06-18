@@ -34,7 +34,7 @@ INT			[0-9]+
 {INT}		 	{ yylval.ival = string2int(YYText()); return INT; }
 
 <<EOF>>			{	yyterminate(); }
-.				{	std::cout << "illegal token"; }
+.				{	std::cout << "illegal token "; }
 
 %%
 
