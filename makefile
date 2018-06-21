@@ -9,6 +9,5 @@ tmp/main.o: main.cpp
 recursive-parser: tmp/main.o tmp/lex.yy.o
 	g++ tmp/lex.yy.o tmp/main.o -o recursive-parser
 clean:
-	rm tmp/*
+	rm tmp/*.o
 	rm recursive-parser
-	touch placeholder.tmp
