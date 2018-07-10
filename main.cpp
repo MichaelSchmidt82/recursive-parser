@@ -152,6 +152,9 @@ int factor() {
 		if (match(RPAREN))
 			count--;
 	}
+  else if (nextToken == RPAREN) {
+    throw runtime_error("Error: Token RPAREN seen." );
+  }
 	else if (nextToken == INT) {
 		temp = yylval.ival;
 		readNextToken();
